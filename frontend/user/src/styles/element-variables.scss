@@ -1,0 +1,69 @@
+/**
+ * Element Plus 主题覆盖
+ * 适配宠物商城的温馨暖色调风格
+ */
+
+/* 导入 Element Plus 变量（用于覆盖） */
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #FF8A5B,
+    ),
+    'success': (
+      'base': #2F8F6A,
+    ),
+    'warning': (
+      'base': #FFA726,
+    ),
+    'danger': (
+      'base': #EF5350,
+    ),
+    'info': (
+      'base': #42A5F5,
+    ),
+  ),
+  $border-radius: (
+    'base': 8px,
+    'small': 6px,
+    'round': 12px,
+    'circle': 100%,
+  ),
+  $border-color: (
+    'base': #EDE1D9,
+    'light': #F5EBE4,
+    'lighter': #F5EBE4,
+    'extra-light': #F5EBE4,
+    'dark': #D9CFC7,
+    'darker': #D9CFC7,
+  ),
+  $text-color: (
+    'primary': #2A2A2A,
+    'regular': #5A5A5A,
+    'secondary': #8F8F8F,
+    'placeholder': #C4C4C4,
+    'disabled': #DEDEDE,
+  ),
+  $bg-color: (
+    'base': #FFF8F4,
+    'page': #FFF8F4,
+    'overlay': #FFFFFF,
+  ),
+  $fill-color: (
+    'base': #F5EBE4,
+    'light': #F5EBE4,
+    'lighter': #FFF8F4,
+    'extra-light': #FFF8F4,
+    'dark': #EDE1D9,
+    'darker': #EDE1D9,
+    'blank': #ffffff,
+  ),
+  $box-shadow: (
+    'base': (0 4px 12px rgba(0, 0, 0, 0.05)),
+    'light': (0 2px 4px rgba(0, 0, 0, 0.04)),
+    'lighter': (0 2px 4px rgba(0, 0, 0, 0.04)),
+    'dark': (0 6px 16px rgba(0, 0, 0, 0.08)),
+  ),
+  $font-family: (
+    'base': (-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif),
+  ),
+);

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.epsda.pets.mapper.ProductSuperMapper">
+
+    <!-- 宠物子表映射集 -->
+    <resultMap id="petSubResultMap" type="org.epsda.pets.pojo.PetSub">
+        <id   property="subId"         column="sub_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="healthStatus" column="health_status"/>
+        <result property="trainNote" column="train_note"/>
+        <result property="raiseNote" column="raise_note"/>
+        <result property="vaccineFlag" column="vaccine_flag"/>
+        <result property="subCreateTime" column="sub_create_time"/>
+        <result property="subUpdateTime" column="sub_update_time"/>
+    </resultMap>
+
+    <!--  宠物商品子表映射集  -->
+    <resultMap id="petSupplySubResultMap" type="org.epsda.pets.pojo.PetSupplySub">
+        <id   property="subId"         column="sub_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="brand" column="brand"/>
+        <result property="fitAge" column="fit_age"/>
+        <result property="fitVariety" column="fit_variety"/>
+        <result property="manufactureDate" column="manufacture_date"/>
+        <result property="guaranteeDate" column="guarantee_date"/>
+        <result property="company" column="company"/>
+        <result property="subCreateTime" column="sub_create_time"/>
+        <result property="subUpdateTime" column="sub_update_time"/>
+    </resultMap>
+
+    <!-- 商品总表+宠物子表组合类映射集 -->
+    <resultMap id="petProductBOResultMap" type="org.epsda.pets.pojo.bo.PetProductBO">
+        <!-- 组合类映射集中商品总表实体类的映射 -->
+        <association property="productSuper" javaType="org.epsda.pets.pojo.ProductSuper">
+            <id   property="id"             column="id"/>
+            <result property="identifier"    column="identifier"/>
+            <result property="name"          column="name"/>
+            <result property="description"   column="description"/>
+            <result property="type"          column="type"/>
+            <result property="shipId"        column="ship_id"/>
+            <result property="mainCategoryId" column="main_category_id"/>
+            <result property="subCategoryId"  column="sub_category_id"/>
+            <result property="price"         column="price"/>
+            <result property="stock"         column="stock"/>
+            <result property="status"        column="status"/>
+            <result property="deleteFlag"    column="delete_flag"/>
+            <result property="createTime"    column="create_time"/>
+            <result property="updateTime"    column="update_time"/>
+        </association>
+
+        <!-- 组合类映射集中宠物子表实体类的映射 -->
+        <association property="petSub" resultMap="petSubResultMap"/>
+    </resultMap>
+
+    <!-- 商品总表+宠物子表组合类映射集 -->
+    <resultMap id="supplyProductBOResultMap" type="org.epsda.pets.pojo.bo.SupplyProductBO">
+        <!-- 组合类映射集中商品总表实体类的映射 -->
+        <association property="productSuper" javaType="org.epsda.pets.pojo.ProductSuper">
+            <id   property="id"             column="id"/>
+            <result property="identifier"    column="identifier"/>
+            <result property="name"          column="name"/>
+            <result property="description"   column="description"/>
+            <result property="type"          column="type"/>
+            <result property="shipId"        column="ship_id"/>
+            <result property="mainCategoryId" column="main_category_id"/>
+            <result property="subCategoryId"  column="sub_category_id"/>
+            <result property="price"         column="price"/>
+            <result property="stock"         column="stock"/>
+            <result property="status"        column="status"/>
+            <result property="deleteFlag"    column="delete_flag"/>
+            <result property="createTime"    column="create_time"/>
+            <result property="updateTime"    column="update_time"/>
+        </association>
+
+        <!-- 组合类映射集中宠物子表实体类的映射 -->
+        <association property="petSupplySub" resultMap="petSupplySubResultMap"/>
+    </resultMap>
+
+    <!--  根据商品ID获取到指定的宠物  -->
+    <select id="selectPetByProductId" resultMap="petProductBOResultMap" parameterType="long">
+        select
+        *
+        from tb_product_super ps left join tb_pet_sub sub
+        on sub.product_id = ps.id
+        where ps.id = #{productId}
+          and ps.type = 1
+          and ps.delete_flag = 0
+          and status != 3
+    </select>
+    <!--  根据商品ID获取到指定的宠物用品  -->
+    <select id="selectSupplyByProductId" resultMap="supplyProductBOResultMap" parameterType="long">
+        select
+        *
+        from tb_product_super ps left join tb_pet_supply_sub sub
+        on sub.product_id = ps.id
+        where ps.id = #{productId}
+          and ps.type = 2
+          and ps.delete_flag = 0
+          and status != 3
+    </select>
+
+</mapper>

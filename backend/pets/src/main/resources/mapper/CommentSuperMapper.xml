@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.epsda.pets.mapper.CommentSuperMapper">
+
+    <!-- 商品评论子表映射集 -->
+    <resultMap id="commentSubResultMap" type="org.epsda.pets.pojo.ProductCommentSub">
+        <id   property="subId"         column="sub_id"/>
+        <result property="commentId" column="comment_id"/>
+        <result property="stars" column="stars"/>
+        <result property="subCreateTime" column="sub_create_time"/>
+        <result property="subUpdateTime" column="sub_update_time"/>
+    </resultMap>
+
+    <!-- 评论总表+商品评论子表组合类映射集 -->
+    <resultMap id="productCommentBOResultMap" type="org.epsda.pets.pojo.bo.ProductCommentBO">
+        <!-- 组合类映射集中评论总表实体类的映射 -->
+        <association property="commentSuper" javaType="org.epsda.pets.pojo.CommentSuper">
+            <id   property="id"              column="id"/>
+            <result property="objectId"      column="object_id"/>
+            <result property="userId"        column="user_id"/>
+            <result property="parentId"      column="parent_id"/>
+            <result property="type"          column="type"/>
+            <result property="content"       column="content"/>
+            <result property="status"        column="status"/>
+            <result property="deleteFlag"    column="delete_flag"/>
+            <result property="createTime"    column="create_time"/>
+            <result property="updateTime"    column="update_time"/>
+        </association>
+
+        <!-- 组合类映射集中评论子表实体类的映射 -->
+        <association property="productCommentSub" resultMap="commentSubResultMap"/>
+    </resultMap>
+
+    <select id="selectProductCommentsByObjectId" resultMap="productCommentBOResultMap" parameterType="long">
+        select
+            cs.*, sub.*
+        from tb_comment_super cs
+        left join tb_product_comment_sub sub on sub.comment_id = cs.id
+        where cs.object_id = #{productId} and cs.type = 1 and status = 2
+    </select>
+</mapper>

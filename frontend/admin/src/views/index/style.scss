@@ -1,0 +1,181 @@
+// 全屏加载动画
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: var(--default-bg-color, #fff);
+
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    .spinner-svg {
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+
+      circle {
+        stroke: var(--main-color, #ff8a5b);
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+      }
+    }
+
+    .loading-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 200px;
+
+      .progress-bar {
+        flex: 1;
+        height: 4px;
+        background: var(--art-gray-200, #e5e7eb);
+        border-radius: 2px;
+        overflow: hidden;
+
+        .progress-fill {
+          height: 100%;
+          background: var(--main-color, #ff8a5b);
+          border-radius: 2px;
+          transition: width 0.2s ease;
+        }
+      }
+
+      .progress-text {
+        font-size: 12px;
+        color: var(--main-color, #ff8a5b);
+        min-width: 36px;
+        text-align: right;
+      }
+    }
+
+    .loading-text {
+      color: var(--art-gray-500, #6b7280);
+      font-size: 13px;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--default-bg-color);
+
+  #app-sidebar {
+    flex-shrink: 0;
+  }
+
+  #app-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    height: 100vh;
+    overflow: auto;
+
+    #app-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    #app-content {
+      flex: 1;
+
+      :deep(.layout-content) {
+        box-sizing: border-box;
+        width: calc(100% - 40px);
+        margin: auto;
+
+        // 子页面默认 style
+        .page-content {
+          position: relative;
+          box-sizing: border-box;
+          padding: 20px;
+          overflow: hidden;
+          background: var(--default-box-color);
+          border-radius: calc(var(--custom-radius) / 2 + 2px) !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width <= 1180px) {
+  .app-layout {
+    #app-main {
+      height: 100dvh;
+    }
+  }
+}
+
+@media only screen and (width <= 800px) {
+  .app-layout {
+    position: relative;
+
+    #app-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 300;
+      height: 100vh;
+    }
+
+    #app-main {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+
+      #app-content {
+        :deep(.layout-content) {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width <= 640px) {
+  .app-layout {
+    #app-main {
+      #app-content {
+        :deep(.layout-content) {
+          width: calc(100% - 30px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+/**
+ * 全局主题变量定义
+ * 宠物服务与商城 - 温馨、高端、大气风格
+ */
+
+:root {
+  /* ==================== 核心色板 ==================== */
+  /* 主色系 - 暖橘色调 */
+  --color-primary: #FF8A5B;
+  --color-primary-light: #FFB088;
+  --color-primary-lighter: #FFC8A5;
+  --color-primary-dark: #E6784E;
+  --color-primary-darker: #CC6742;
+  
+  /* 辅色系 - 浅橘色调 */
+  --color-secondary: #FFD2B8;
+  --color-secondary-light: #FFE5D4;
+  --color-secondary-dark: #FFBF9C;
+  
+  /* 强调色系 - 绿色（价格、健康、成功） */
+  --color-accent: #2F8F6A;
+  --color-accent-light: #4CAF84;
+  --color-accent-dark: #257A5A;
+  
+  /* 背景色系 */
+  --color-bg-base: #FFF8F4;          /* 页面整体底色 */
+  --color-bg-surface: #FFFFFF;        /* 卡片、内容区域背景 */
+  --color-bg-overlay: rgba(255, 248, 244, 0.95);  /* 遮罩层 */
+  
+  /* 文字色系 */
+  --color-text-primary: #2A2A2A;      /* 主标题 */
+  --color-text-secondary: #5A5A5A;    /* 副标题 */
+  --color-text-tertiary: #8F8F8F;     /* 次级文字、说明文字 */
+  --color-text-placeholder: #C4C4C4;  /* 占位符 */
+  --color-text-disabled: #DEDEDE;     /* 禁用状态 */
+  --color-text-inverse: #FFFFFF;      /* 反色文字 */
+  
+  /* 边框/分割线 */
+  --color-border-base: #EDE1D9;
+  --color-border-light: #F5EBE4;
+  --color-border-dark: #D9CFC7;
+  
+  /* 功能色 */
+  --color-success: #2F8F6A;
+  --color-warning: #FFA726;
+  --color-danger: #EF5350;
+  --color-info: #42A5F5;
+  
+  /* ==================== 字体系统 ==================== */
+  --font-family-base: 'JiangChengHeiTi 400W', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 
+                      'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 
+                      Helvetica, Arial, sans-serif;
+  --font-family-number: 'Helvetica Neue', Arial, sans-serif;
+  
+  /* 字体大小 */
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  
+  /* 字体粗细 */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* 行高 */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+  
+  /* ==================== 间距系统 ==================== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 40px;
+  --spacing-4xl: 48px;
+  --spacing-5xl: 64px;
+  
+  /* ==================== 圆角系统 ==================== */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;           /* 卡片标准圆角 */
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-round: 50%;
+  --radius-circle: 9999px;
+  
+  /* ==================== 阴影系统 ==================== */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.05);   /* 卡片标准阴影 */
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 12px 28px rgba(0, 0, 0, 0.12);
+  --shadow-2xl: 0 16px 36px rgba(0, 0, 0, 0.15);
+  
+  /* 内阴影 */
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  
+  /* ==================== 布局系统 ==================== */
+  --container-max-width: 1400px;
+  --container-base-width: 1200px;
+  --container-padding: 24px;
+  
+  /* 断点 */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1400px;
+  
+  /* ==================== 动画系统 ==================== */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 350ms;
+  
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* ==================== Z-index 层级 ==================== */
+  --z-index-base: 1;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-notification: 1080;
+  
+  /* ==================== 其他 ==================== */
+  --header-height: 80px;
+  --footer-height: 200px;
+  --sidebar-width: 240px;
+}

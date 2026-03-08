@@ -1,0 +1,566 @@
+/**
+ * 全局样式
+ * 宠物服务与商城 - 基础样式定义
+ */
+
+/* 江城黑体 */
+@import url("https://fontsapi.zeoseven.com/194/main/result.css");
+
+/* 重置基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll; /* 始终显示垂直滚动条，避免页面切换时抖动 */
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+  border-radius: var(--radius-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-base);
+  border-radius: var(--radius-base);
+  transition: background var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-dark);
+}
+
+/* 通用容器 */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.container-base {
+  width: 100%;
+  max-width: var(--container-base-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* 卡片样式 */
+.card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-base);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-base) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* 文字工具类 */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-price {
+  color: var(--color-accent);
+  font-family: var(--font-family-number);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* 标题样式 */
+.title-xl {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+.title-lg {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+.title-md {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+}
+
+.title-sm {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+}
+
+/* 间距工具类 */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-base { margin-top: var(--spacing-base); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+.mt-3xl { margin-top: var(--spacing-3xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-base { margin-bottom: var(--spacing-base); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-2xl { margin-bottom: var(--spacing-2xl); }
+.mb-3xl { margin-bottom: var(--spacing-3xl); }
+
+.ml-xs { margin-left: var(--spacing-xs); }
+.ml-sm { margin-left: var(--spacing-sm); }
+.ml-md { margin-left: var(--spacing-md); }
+.ml-base { margin-left: var(--spacing-base); }
+.ml-lg { margin-left: var(--spacing-lg); }
+
+.mr-xs { margin-right: var(--spacing-xs); }
+.mr-sm { margin-right: var(--spacing-sm); }
+.mr-md { margin-right: var(--spacing-md); }
+.mr-base { margin-right: var(--spacing-base); }
+.mr-lg { margin-right: var(--spacing-lg); }
+
+.pt-xs { padding-top: var(--spacing-xs); }
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-base { padding-top: var(--spacing-base); }
+.pt-lg { padding-top: var(--spacing-lg); }
+.pt-xl { padding-top: var(--spacing-xl); }
+.pt-2xl { padding-top: var(--spacing-2xl); }
+
+.pb-xs { padding-bottom: var(--spacing-xs); }
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-base { padding-bottom: var(--spacing-base); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+.pb-xl { padding-bottom: var(--spacing-xl); }
+.pb-2xl { padding-bottom: var(--spacing-2xl); }
+
+.px-base { 
+  padding-left: var(--spacing-base);
+  padding-right: var(--spacing-base);
+}
+
+.py-base {
+  padding-top: var(--spacing-base);
+  padding-bottom: var(--spacing-base);
+}
+
+/* 布局工具类 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* 网格布局 */
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+/* 响应式网格 */
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 按钮增强 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border: none;
+  color: var(--color-text-inverse);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-out);
+  box-shadow: 0 2px 8px rgba(255, 138, 91, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 138, 91, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 分割线 */
+.divider {
+  height: 1px;
+  background: var(--color-border-base);
+  margin: var(--spacing-xl) 0;
+}
+
+/* 徽章 */
+.badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-circle);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.badge-accent {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* 图片容器 */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-border-light);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow) var(--ease-out);
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* 加载状态 */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border-base);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 隐藏文字（用于可访问性） */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 文本省略 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 响应式工具 */
+.hidden-xs {
+  @media (max-width: 480px) {
+    display: none !important;
+  }
+}
+
+.hidden-sm {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.hidden-md {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
+/* Element Plus MessageBox 确认弹窗样式优化 */
+.el-message-box {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  padding: 0 !important;
+  overflow: hidden;
+  
+  .el-message-box__header {
+    padding: 20px 24px 16px !important;
+    background: linear-gradient(135deg, #fff8f5 0%, #fff 100%);
+    border-bottom: 1px solid #f5f5f5;
+    
+    .el-message-box__title {
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      color: #333 !important;
+    }
+    
+    .el-message-box__headerbtn {
+      top: 18px !important;
+      right: 20px !important;
+      
+      .el-message-box__close {
+        color: #999 !important;
+        font-size: 18px !important;
+        
+        &:hover {
+          color: #FF8A5B !important;
+        }
+      }
+    }
+  }
+  
+  .el-message-box__content {
+    padding: 24px !important;
+    
+    .el-message-box__container {
+      .el-message-box__status {
+        font-size: 24px !important;
+        
+        &.el-message-box__status--warning {
+          color: #FF8A5B !important;
+        }
+      }
+      
+      .el-message-box__message {
+        font-size: 15px !important;
+        color: #666 !important;
+        line-height: 1.6 !important;
+        
+        p {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+  
+  .el-message-box__btns {
+    padding: 16px 24px 24px !important;
+    
+    .el-button {
+      min-width: 100px !important;
+      height: 40px !important;
+      border-radius: 20px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      transition: all 0.25s ease !important;
+      
+      // 取消按钮（再想想）
+      &:first-child {
+        background: #fff !important;
+        border: 1px solid #e0e0e0 !important;
+        color: #666 !important;
+        
+        &:hover {
+          border-color: #FF8A5B !important;
+          color: #FF8A5B !important;
+          background: #fff8f5 !important;
+        }
+      }
+      
+      // 确认按钮（确定取消）
+      &:last-child {
+        background: linear-gradient(135deg, #FF8A5B 0%, #ff6b3d 100%) !important;
+        border: none !important;
+        color: #fff !important;
+        box-shadow: 0 4px 12px rgba(255, 138, 91, 0.35) !important;
+        
+        &:hover {
+          transform: translateY(-1px) !important;
+          box-shadow: 0 6px 16px rgba(255, 138, 91, 0.45) !important;
+        }
+        
+        &:active {
+          transform: translateY(0) !important;
+        }
+      }
+    }
+  }
+}
+
+// MessageBox 過渡动画
+.el-overlay {
+  .el-message-box {
+    animation: messageBoxFadeIn 0.25s ease-out !important;
+  }
+}
+
+@keyframes messageBoxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// 提升 Element Plus 消息提示层级，确保在模态框之上
+.el-message {
+  z-index: 99999 !important;
+}
+
+.el-notification {
+  z-index: 99999 !important;
+}
+
+.el-loading-mask {
+  z-index: 99998 !important;
+}
+
+// Element Plus 图片预览器的遮罩层样式优化
+.el-image-viewer__wrapper {
+  z-index: 99999 !important;
+}
+
+// 修复 Element Plus 模态框/图片预览打开时导航栏偏移问题
+// 当模态框打开时，body 会添加 overflow: hidden 导致滚动条消失
+// 页面宽度增加，固定定位的导航栏会发生偏移
+// 通过给 body 添加 padding-right 来补偿滚动条宽度
+body.el-popup-parent--hidden {
+  padding-right: var(--scrollbar-width, 0px) !important;
+  
+  // 同时确保固定定位的导航栏也补偿滚动条宽度
+  .navbar {
+    padding-right: var(--scrollbar-width, 0px);
+  }
+}
+
+

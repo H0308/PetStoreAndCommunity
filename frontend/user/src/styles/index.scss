@@ -1,0 +1,16 @@
+/**
+ * 样式入口文件
+ * 统一导入所有全局样式
+ */
+
+/* 1. 导入 CSS 变量 (@use 必须在最前面) */
+@use './variables.scss';
+
+/* 2. 导入 Element Plus 主题覆盖 */
+@use './element-variables.scss';
+
+/* 3. 导入全局样式 */
+@use './global.scss';
+
+/* 4. 导入 Element Plus 核心样式 (@import 必须在 @use 之后) */
+@import 'element-plus/dist/index.css';

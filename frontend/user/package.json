@@ -1,0 +1,32 @@
+{
+  "name": "pets-user",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "@tiptap/extension-code-block-lowlight": "^3.14.0",
+    "@tiptap/extension-placeholder": "^3.14.0",
+    "@tiptap/starter-kit": "^3.14.0",
+    "@tiptap/vue-3": "^3.14.0",
+    "element-plus": "^2.12.0",
+    "highlight.js": "^11.11.1",
+    "html2canvas": "^1.4.1",
+    "lowlight": "^3.3.0",
+    "marked": "^17.0.1",
+    "sass": "^1.95.1",
+    "three": "^0.183.1",
+    "vue": "^3.5.24",
+    "vue-masonry-css": "^1.0.3",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.2.4"
+  }
+}
